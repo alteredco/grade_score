@@ -8,18 +8,22 @@ class App extends Component {
     categories: [
       {
         title: "Create a structured portfolio",
+        score: 0,
         id: 1
       },
       {
         title: "Create an original portfolio",
+        score: 0,
         id: 2
       },
       {
         title: "Unobtrusive file structure",
+        score: 0,
         id: 3
       },
       {
         title: "Links",
+        score: 0,
         id: 4
       },
       {
@@ -29,19 +33,34 @@ class App extends Component {
       },
       {
         title: "Codebase",
+        score: 0,
         id: 6
       },
       {
         title: "Code structure",
+        score: 0,
         id: 7
+      }
+    ],
+    comments: [
+      {
+        title: "Peer Reviewer Comments",
+        contents: "Please enter your comments on the project.",
+        id: 1
       }
     ]
   }
 
-  handleDeleteCategory = (id) => {
+  handleScoreChange = ( index, delta ) => {
+    this.setState( prevState =>  ({
+        score: prevState.categories[index].score += delta
+    }))
+  }
+
+  handleDeleteComment = (id) => {
     this.setState( prevState => {
       return {
-        categories: prevState.categories.filter( c => c.id !== id )
+        comments: prevState.comments.filter( c => c.id !== id )
       };
     })
   }
@@ -49,17 +68,27 @@ class App extends Component {
   render() {
     return (
       <div className="scoreboard">
-        <Header  title= "Portfolio Peer Review Score" totalPoints={ this.state.categories.length }/>
+        <Header  
+          title= "Portfolio Peer Review Score" 
+          categories={ this.state.categories }
+          />
         {/* Categorys list */}
-        {this.state.categories.map( category => 
+        {this.state.categories.map( (category, index) => 
           <Category 
             title={category.title}
             score={category.score}
             id= {category.id}
             key={category.id.toString()}
-            removeCategory={this.handleDeleteCategory}
+            index={ index }
+            changeScore = { this.handleScoreChange }
+            // removeCategory={this.handleDeleteCategory}
             />
         )}
+        <div className="comments">
+              <h2>Peer Reviewer Comments</h2>
+              <p className="comment-section"><button className="remove-comment">✖</button>
+              Here are my comments on this project. Ladida!</p>
+            </div>
       </div>
     );
   }
