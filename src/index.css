@@ -114,10 +114,6 @@ svg {
     border-bottom-color: #D4CAFF;
   }
 
-  .category-name:hover .remove-category {
-    visibility: visible;
-  }
-
   .category-name,
   .counter-score {
     color: #2F2366;
@@ -245,6 +241,7 @@ svg {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    text-transform: none;
   }
 
   .comments h2 {
@@ -261,6 +258,10 @@ svg {
     flex-direction: wrap;
   }
 
+  .comment-section:hover .remove-comment {
+    visibility: visible;
+  }
+
   .remove-comment {
     font-size: 1.15em;
     border: none;
@@ -269,6 +270,6 @@ svg {
     color: #EF5350;
     cursor: pointer;
     margin: 0 10px 0 0;
-    padding: 0;
+    padding-left: 1em;
     background: none;
   }

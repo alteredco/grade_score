@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from  './Header';
 import Category from  './Category';
+import Comment from './Comment';
 
 
 class App extends Component {
@@ -81,14 +82,17 @@ class App extends Component {
             key={category.id.toString()}
             index={ index }
             changeScore = { this.handleScoreChange }
-            // removeCategory={this.handleDeleteCategory}
             />
         )}
-        <div className="comments">
-              <h2>Peer Reviewer Comments</h2>
-              <p className="comment-section"><button className="remove-comment">✖</button>
-              Here are my comments on this project. Ladida!</p>
-            </div>
+        {this.state.comments.map( (comment, index) =>
+          <Comment 
+            title={comment.title}
+            content = {comment.contents}
+            id = {comment.id}
+            key = {comment.id.toString()}
+            removeComment={this.handleDeleteComment}
+          />
+        )}
       </div>
     );
   }
