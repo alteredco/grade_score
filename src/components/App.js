@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from  './Header';
 import Category from  './Category';
 import Comment from './Comment';
+import AddComment from './AddComment';
 
 
 class App extends Component {
@@ -52,10 +53,28 @@ class App extends Component {
     ]
   }
 
+  //comment id counter
+  prevCommentId = 1;
+
   handleScoreChange = ( index, delta ) => {
     this.setState( prevState =>  ({
         score: prevState.categories[index].score += delta
     }))
+  }
+
+  handleAddComment = (comment) => {
+    this.setState( prevState => {
+      return {
+        comments: [
+          ...prevState.comments,
+          {
+            title: "",
+            contents: comment,
+            id: this.prevCommentId += 1
+          }
+        ]
+      };
+    })
   }
 
   handleDeleteComment = (id) => {
@@ -84,15 +103,18 @@ class App extends Component {
             changeScore = { this.handleScoreChange }
             />
         )}
-        {this.state.comments.map( (comment, index) =>
+        {this.state.comments.map( (comment) =>
           <Comment 
             title={comment.title}
             content = {comment.contents}
             id = {comment.id}
             key = {comment.id.toString()}
-            removeComment={this.handleDeleteComment}
+            deleteComment={this.handleDeleteComment}
           />
         )}
+        <AddComment 
+          addComment= { this.handleAddComment }
+        />
       </div>
     );
   }
