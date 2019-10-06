@@ -2,13 +2,11 @@ import React from 'react';
 
 const Comment = (props) => {
   return (
-    <div className="comments">
-      <h2>{props.title}</h2>
         <p className="comment-section">
+        <span className={ props.content === "" ? "isHidden" : null}>
         <button className="remove-comment" onClick={ () => props.deleteComment(props.id)  }>✖</button>
-        {props.content}
+        {props.content}</span>
         </p>
-    </div>
   );
 }
 

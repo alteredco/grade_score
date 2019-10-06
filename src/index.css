@@ -26,6 +26,8 @@ header h1 {
 form {
   display: flex;
   background-color: #8063FA;
+  flex-direction: row;
+  width: 100%;
 }
 
 input[type=text] {
@@ -37,7 +39,7 @@ input[type=text] {
   background-color: #5B45B9;
   border-style: none;
   text-shadow: none;
-  text-transform: uppercase;
+  text-transform: none;
   color: #C7BCF8;
   letter-spacing: 2px;
   outline: none;
@@ -272,4 +274,8 @@ svg {
     margin: 0 10px 0 0;
     padding-left: 1em;
     background: none;
+  }
+
+  .isHidden {
+    display: none;
   }

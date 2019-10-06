@@ -46,8 +46,7 @@ class App extends Component {
     ],
     comments: [
       {
-        title: "Peer Reviewer Comments",
-        contents: "Please enter your comments on the project.",
+        contents: "",
         id: 1
       }
     ]
@@ -68,7 +67,6 @@ class App extends Component {
         comments: [
           ...prevState.comments,
           {
-            title: "",
             contents: comment,
             id: this.prevCommentId += 1
           }
@@ -103,6 +101,8 @@ class App extends Component {
             changeScore = { this.handleScoreChange }
             />
         )}
+      <div className="comments">
+        <h2>Peer Reviewer Comments</h2>
         {this.state.comments.map( (comment) =>
           <Comment 
             title={comment.title}
@@ -115,6 +115,7 @@ class App extends Component {
         <AddComment 
           addComment= { this.handleAddComment }
         />
+        </div>
       </div>
     );
   }

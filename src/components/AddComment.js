@@ -28,6 +28,7 @@ class AddComment extends Component {
         <input 
           type="submit"
           value="Add Comment"
+          disabled = { this.state.value === "" ? "disabled": null}
         />
       </form>
     );
