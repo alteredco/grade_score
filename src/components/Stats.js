@@ -2,7 +2,7 @@ import React from 'react';
 
 const Stats = (props) => {
 
-  const meetsScore = props.categories.length
+  const meetsScore = props.categories.length * 50
   const totalPoints = props.categories.reduce( (total, category) => {
     return total+category.score;
   }, 0)

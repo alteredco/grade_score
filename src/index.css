@@ -279,3 +279,45 @@ svg {
   .isHidden {
     display: none;
   }
+
+  @media only screen and (max-width: 400px) {
+
+    header {
+      text-align: right;
+    }
+
+    header h1 {
+      margin-left: 2em;
+      font-size: 1em;
+      width: 90%;
+      flex-grow: 0;
+    }
+
+    .criteria {
+      display: none;
+    }
+
+    .category {
+      font-size: 1em;
+      letter-spacing: 1px;
+    }
+
+    .category-name {
+      flex-grow: 1;
+      line-height: 1.5em;
+      padding: 10px;
+    }
+
+    .stats {
+      width: 10%;
+      font-size: .5em;
+    }
+
+    .stopwatch {
+      display: none;
+    }
+
+    .counter {
+      width: 35%;
+    }
+  }

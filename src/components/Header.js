@@ -1,5 +1,6 @@
 import React from 'react';
 import Stats from './Stats';
+import Stopwatch from './Stopwatch';
 
 const Header = (props) => {
   return (
@@ -17,13 +18,14 @@ const Header = (props) => {
             <td>"Needs Work" = 0,</td>
           </tr>
           <tr>
-            <td>"Meets Requirements"= 1,</td>
+            <td>"Meets Requirements"= 50,</td>
          </tr>
          <tr>
-          <td> "Excels"= 2</td>
+          <td> "Excels"= 100</td>
           </tr>
        </tbody>
       </table>
+      <Stopwatch />
     </header>
   )
 }
