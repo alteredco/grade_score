@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Stats from './Stats';
 import Stopwatch from './Stopwatch';
 
-const Header = (props) => {
+const Header = ({categories, title}) => {
   return (
     <header>
       <Stats 
-        categories= {props.categories}
+        categories= {categories}
       />
-      <h1>{ props.title }</h1>
+      <h1>{ title }</h1>
       <table className="criteria">
         <tbody>
           <tr>
@@ -28,6 +29,15 @@ const Header = (props) => {
       <Stopwatch />
     </header>
   )
+}
+
+Header.propTypes = {
+  title: PropTypes.string,
+  categories: PropTypes.arrayOf(PropTypes.object)
+}
+
+Header.defaultProps = {
+  title: 'Peer Review Score'
 }
 
 export default Header;

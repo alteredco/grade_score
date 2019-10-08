@@ -3,45 +3,50 @@ import Header from  './Header';
 import Category from  './Category';
 import Comment from './Comment';
 import AddComment from './AddComment';
-
-
 class App extends Component {
   state = {
     categories: [
       {
         title: "Create a structured portfolio",
         score: 0,
-        id: 1
+        id: 1,
+        isHighScore: false
       },
       {
         title: "Create an original portfolio",
         score: 0,
-        id: 2
+        id: 2,
+        isHighScore: false
       },
       {
         title: "Unobtrusive file structure",
         score: 0,
-        id: 3
+        id: 3,
+        isHighScore: false
       },
       {
         title: "Links",
         score: 0,
-        id: 4
+        id: 4,
+        isHighScore: false
       },
       {
         title: "Code comments",
         score: 0,
-        id: 5
+        id: 5,
+        isHighScore: false
       },
       {
         title: "Codebase",
         score: 0,
-        id: 6
+        id: 6,
+        isHighScore: false
       },
       {
         title: "Code structure",
         score: 0,
-        id: 7
+        id: 7,
+        isHighScore: false
       }
     ],
     comments: [
@@ -59,6 +64,15 @@ class App extends Component {
     this.setState( prevState =>  ({
         score: prevState.categories[index].score += delta
     }))
+  }
+
+  handleHighScore = () => {
+   const scores = this.state.categories.map( c => c.score)
+   const highScore = Math.max(...scores);
+   if(highScore) {
+     return highScore
+   } 
+   return null;
   }
 
   handleAddComment = (comment) => {
@@ -84,10 +98,10 @@ class App extends Component {
   }
 
   render() {
+    const highScore =  this.handleHighScore();
     return (
       <div className="scoreboard">
-        <Header  
-          title= "Portfolio Peer Review Score" 
+        <Header 
           categories={ this.state.categories }
           />
         {/* Categorys list */}
@@ -99,6 +113,7 @@ class App extends Component {
             key={category.id.toString()}
             index={ index }
             changeScore = { this.handleScoreChange }
+            isHighScore = {highScore === category.score}
             />
         )}
       <div className="comments">
@@ -110,6 +125,7 @@ class App extends Component {
             id = {comment.id}
             key = {comment.id.toString()}
             deleteComment={this.handleDeleteComment}
+
           />
         )}
         <AddComment 
