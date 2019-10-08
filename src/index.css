@@ -318,6 +318,7 @@ svg {
     }
 
     .counter {
-      width: 35%;
+      display: flex;
+      flex:1;
     }
   }
