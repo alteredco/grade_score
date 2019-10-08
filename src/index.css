@@ -1,4 +1,12 @@
 /* ELEMENT STYLES -------------------- */
+:root {
+  --turquoise-blue: #00FFF5;
+  --turquoise: #3CDBD3;
+  --verdigris: #31B7B0;
+  --medium-purple: #8568fa;
+  --bright-purple: #6540F9;
+}
+
 body {
   background: #e8e7e7; 
   font-family: arial;
@@ -11,8 +19,8 @@ header {
   text-align: center;
   display: flex;
   align-items: center;
-  background-color: #8063FA;
-  border-bottom: solid 2px #D4CAFF;
+  background-color: var(--medium-purple);
+  border-bottom: solid 2px var(--turquoise-blue);
 }
 
 header h1 {
@@ -25,7 +33,7 @@ header h1 {
 /* FORMS */
 form {
   display: flex;
-  background-color: #8063FA;
+  background-color: var(--turquoise);
   flex-direction: row;
   width: 100%;
 }
@@ -36,7 +44,7 @@ input[type=text] {
   margin: 15px 10px 15px 15px;
   padding: 10px;
   border-radius: 5px;
-  background-color: #5B45B9;
+  background-color: var(--bright-purple);
   border-style: none;
   text-shadow: none;
   text-transform: none;
@@ -51,7 +59,8 @@ input[type=text]::-webkit-input-placeholder{
 }
 
 input[type=text]:focus{
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--medium-purple);
+  color: #fff;
 }
 
 input[type=submit] {
@@ -100,7 +109,7 @@ svg {
   background: #fff;
   width: 90%;
   margin: 70px auto;
-  box-shadow: 0 2px 0 #8568fa;
+  box-shadow: 0 2px 0 var(--turquoise-blue);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -113,7 +122,7 @@ svg {
 }
 
   .category:last-of-type {
-    border-bottom-color: #D4CAFF;
+    border-bottom-color: var(--turquoise-blue);
   }
 
   .category-name,
@@ -134,7 +143,7 @@ svg {
 
 .stats {
   display: flex;
-  font-weight: normal;
+  font-weight: bold;
   text-align: left;
 }
 
@@ -162,7 +171,7 @@ svg {
 .stopwatch {
   padding: 15px 10px 5px 10px;
   margin: -5px -10px -5px 10px;
-  background: #5B45B9;
+  background: var(--bright-purple);
 }
 
   .stopwatch-time {
@@ -239,7 +248,7 @@ svg {
     display: flex;
     font-size: 1.2em;
     letter-spacing: 2px;
-    border-top: solid 5px #8568fa;
+    border-top: solid 5px var(--turquoise-blue);
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -253,6 +262,7 @@ svg {
     font-size: 1.5em;
     letter-spacing: 2px;
     font-weight: normal;
+    color: var(--bright-purple);
   }
 
   .comment-section {
