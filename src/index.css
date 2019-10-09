@@ -297,8 +297,8 @@ svg {
     }
 
     header h1 {
-      margin-left: 2em;
-      font-size: 1em;
+      padding-left: 2em;
+      font-size: .9em;
       width: 90%;
       flex-grow: 0;
     }
@@ -320,7 +320,19 @@ svg {
 
     .stats {
       width: 10%;
+      padding-right: 1em;
+    }
+
+    .stats td:first-child {
+      text-align: left;
+      letter-spacing: .25em;
       font-size: .5em;
+      font-weight: normal;
+    }
+  
+    .stats td:last-child {
+      text-align: left;
+      font-size: 1em;
     }
 
     .stopwatch {
@@ -330,5 +342,9 @@ svg {
     .counter {
       display: flex;
       flex:1;
+    }
+
+    form {
+     flex: 1;
     }
   }
