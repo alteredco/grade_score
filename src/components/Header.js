@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import Stats from './Stats';
 import Stopwatch from './Stopwatch';
 
-const Header = ({categories, title}) => {
+const Header = () => {
   return (
     <header>
-      <Stats 
-        categories= {categories}
-      />
-      <h1>{ title }</h1>
+      <Stats />
+      <h1>Peer Review Score</h1>
       <table className="criteria">
         <tbody>
           <tr>
@@ -32,8 +30,7 @@ const Header = ({categories, title}) => {
 }
 
 Header.propTypes = {
-  title: PropTypes.string,
-  categories: PropTypes.arrayOf(PropTypes.object)
+  title: PropTypes.string
 }
 
 Header.defaultProps = {

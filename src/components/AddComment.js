@@ -1,38 +1,45 @@
 import React, { Component } from 'react';
+import { Consumer } from './Context/';
 
 class AddComment extends Component {
 
   state = {
-    value: ''
+    value: ""
   }
-
-  handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.addComment(this.state.value)
-    this.setState({ value: "" })
-  }
-
-  handleValueChange = (e) => {
-    this.setState( { value: e.target.value })
-  }
-
+  
   render() {
+    console.log(this.state.value);
     return (
-      <form onSubmit={ this.handleSubmit }>
-        <input 
-          type="text"
-          value={ this.state.value }
-          onChange={ this.handleValueChange }
-          placeholder="Please enter your comments here."
-        />
-        <input 
-          type="submit"
-          value="Add Comment"
-          disabled = { this.state.value === "" ? "disabled": null}
-        />
-      </form>
+      <Consumer>
+        {({actions}) => {
+          const handleSubmit = (e) => {
+            e.preventDefault()
+            actions.addComment(this.state.value)
+            this.setState( {value:""})
+          }
+
+          const handleValueChange = (e) => {
+            this.setState( { value: e.target.value })
+          }
+          return (
+            <form onSubmit={ handleSubmit }>
+              <input 
+                type="text"
+                value={this.state.value}
+                onChange={ handleValueChange}
+                placeholder="Please enter your comments here."
+              />
+              <input 
+                type="submit"
+                value="Add Comment"
+                disabled = { this.state.value === "" ? "disabled": null}
+              />
+            </form>
+          );
+        }}
+      </Consumer>
     );
   }
-}
+  }
 
 export default AddComment;

@@ -1,20 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Consumer } from './Context/';
 
-const Comment = ({content, deleteComment, id}) => {
+const Comment = () => {
   return (
+      <div className="comments">
+        <h2>Peer Reviewer Comments</h2>
         <p className="comment-section">
-        <span className={ content === "" ? "isHidden" : null}>
-        <button className="remove-comment" onClick={ () => deleteComment(id)  }>✖</button>
-        {content}</span>
+        <Consumer>
+          { ({comments , actions}) => (
+            <React.Fragment>
+            {comments.map( (comment) =>
+              <span className={ comment.contents === "" ? "isHidden" : null}>
+                <button className="remove-comment" onClick={ () => actions.deleteComment(comment.id)  }>✖
+                </button>
+                {comment.contents}</span>
+              )}
+              </React.Fragment>
+            )}
+        </Consumer>
         </p>
+      </div>
   );
-}
-
-Comment.propTypes = {
-  content: PropTypes.string, 
-  deleteComment: PropTypes.func, 
-  id: PropTypes.number
 }
 
 export default Comment;
