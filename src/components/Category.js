@@ -6,8 +6,6 @@ import Counter from  './Counter';
 class Category extends PureComponent {
   static propTypes = {
     title : PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired,
-    changeScore: PropTypes.func,
     index: PropTypes.number,
     isHighScore: PropTypes.bool
   };
@@ -15,8 +13,6 @@ class Category extends PureComponent {
   render() {
     const {
       title,
-      score,
-      changeScore,
       index
     } = this.props;
     return (
@@ -26,8 +22,6 @@ class Category extends PureComponent {
           {title}
         </span>
         <Counter 
-          score = {score}
-          changeScore = { changeScore }
           index= { index }
           />
       </div>
